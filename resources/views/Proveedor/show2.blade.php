@@ -18,17 +18,17 @@
             <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
                 <div class="btn-group" role="group">
                     <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        <div class="hidden-xs">lista de dependencias</div>
+                        <div class="hidden-xs">Formulario</div>
                     </button>
                 </div>
                 <div class="btn-group" role="group">
                     <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                        <div class="hidden-xs">Reporte</div>
+                        <div class="hidden-xs">Producto</div>
                     </button>
                 </div>
                 <div class="btn-group" role="group">
                     <button type="button" id="favorites" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                        <div class="hidden-xs">Estadisticas</div>
+                        <div class="hidden-xs">Reporte</div>
                     </button>
                 </div>
                 <div class="btn-group" role="group">
@@ -41,19 +41,7 @@
             <div class="well">
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="tab1">
-                        <table class="table table-inbox table-hover">
-                            <tbody>
-                                <h1>{{$proveedor->nombre}}</h1>
-                                 @foreach($proveedor->localizaciones as $lista)
-                                 <tr class="">
-                                    <td class="view-message dont-show">{{$lista->nombre}}</td>
-                                    <td class="view-message text-right">
-                                        <a href="{{asset('ubicaciones/'.$lista->id)}}" class="btn btn-success">Detalles</a>
-                                    </td>
-                                </tr>
-                                 @endforeach
-                            </tbody>
-                        </table>
+                        @include('template.formulario',['productos'=>$productos,'enviarProveedor'=>$enviarProveedor])
                     </div>
                     <div class="tab-pane fade in" id="tab2">
                         <h3>productos lista</h3>

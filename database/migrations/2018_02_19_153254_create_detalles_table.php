@@ -21,6 +21,7 @@ class CreateDetallesTable extends Migration
             $table->boolean('recibido')->default(false);
             $table->integer('user_id');
             $table->integer('proveedor_id');
+            $table->integer('localizacion_id');
 
             $table->timestamps();
         });

@@ -19,7 +19,7 @@ class DetallesController extends Controller
     {
         $productos =  Producto::all();
         $proveedores = Proveedor::all();
-        return view('Detalles.index',['productos'=>$productos,'proveedores'=>$proveedores]);
+        //return view('Detalles.index',['productos'=>$productos,'proveedores'=>$proveedores]);
     }
 
     /**
@@ -42,8 +42,7 @@ class DetallesController extends Controller
     {
        //return $request->all();
         
-        $stock = $request->input('stock');
-        $productosId = $request->input('productos_ids');
+        
         $total = 0;
         /*
         if (isset($productosId)) {
@@ -71,18 +70,19 @@ class DetallesController extends Controller
 
         //return $proveedor->id;
         $productos = $request->input('productos_ids');
-
+        $stock = $request->input('stock');
+        //$productosId = $request->input('productos_ids');
 
         //return $productos;
         //$detalle->hasAnyProduct($productos_id);
-
+        //return $stock;
         
         if (isset($productos)) 
         {
             foreach ($productos as $productosId) 
             {
                 $producto = Producto::find($productosId);
-                $producto->decrement('stock_pivot',$stock[$productosId-1]);//resta la cantidad de producto enviada 
+                //$producto->decrement('stock_pivot',$stock[$productosId-1]);//resta la cantidad de producto enviada 
                 $detalle->productos()->attach($producto,[
                     'proveedor_id' => $proveedor_id,
                     'stock_pivot' => $stock[$productosId-1]

@@ -9,25 +9,26 @@
         <div class="form-group">
             <label for="user">Selecione un usuario :</label>
             <select class="form-control" id="user" name="user_recibido" required>
-              <option> </option>
-              @foreach($enviarProveedor->users as $user)
-                <option value="{{$user->id}}">{{$user->name}}</option>
-              @endforeach
+              <option> </option> 
+                @foreach($enviarProveedor->users as $user)
+                  <option value="{{$user->id}}">{{$user->name}}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">
             <label for="proveedor">Selecione un Centro clap:</label>
             <select class="form-control" id="proveedor" name="proveedor" required>
               <option> </option>
-              <option value="{{$enviarProveedor->id}}">{{$enviarProveedor->nombre}}</option>
+                <option value="{{$enviarProveedor->id}}">{{$enviarProveedor->nombre}}</option>
             </select>
         </div>
         <div class="form-group">
             <label for="ubicacion">Selecione la ubicacion del Centro clap:</label>
             <select class="form-control" id="ubicacion" name="ubicacion" required>
               <option> </option>
-              <option value="1">La Pastora: Casa de cultura. </option>
-              <option value="2">San Agustín: Urbanismo Tomar Torrijos. </option>
+              @foreach($enviarProveedor->localizaciones as $ubiacion)
+                <option value="{{$ubiacion->id}}">{{$ubiacion->nombre}} </option>
+              @endforeach
             </select>
         </div>
         
@@ -38,6 +39,22 @@
       <table class="table table-inbox table-hover">
         <tbody>
           @if(Auth::user()->proveedor_id == '1')
+          <!-- input search -->
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div id="imaginary_container"> 
+                        <div class="input-group stylish-input-group">
+                            <input type="text" class="form-control"  placeholder="Search" >
+                            <span class="input-group-addon">
+                                <button type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>  
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <!-- end input search -->
             @foreach($productos as $producto)
               <tr class="">
                 <td class="inbox-small-cells">

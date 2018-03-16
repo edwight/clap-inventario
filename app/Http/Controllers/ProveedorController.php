@@ -57,23 +57,16 @@ class ProveedorController extends Controller
     public function show($id)
     {
         if(Auth::user()->proveedor_id == $id){
-            $proveedor = Proveedor::find($id); //User::with('Favourite')->get();
 
-            $productos = Producto::where('stock','>','0')->get();
+            $proveedor = Proveedor::find($id); //User::with('Favourite')->get();
             $detalles = Detalle::where('proveedor_id',$id)->get();
-            $enviarProveedor = Proveedor::find($id + 1);
-            $modulo = 'Clap';
-            $moduloUrl = 'proveedores';
-            $urlButton = true;
+            $productos = Producto::where('stock','>','0')->get();
             return view('Proveedor.show',compact(
                 'proveedor',
                 'proveedores',
                 'productos',
-                'detalles',
-                'modulo',
-                'moduloUrl',
-                'enviarProveedor',
-                'urlButton'));
+                'detalles'
+                ));
         //return $producto;
         }
         else{

@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             //$table->integer('cedula')->unique();
             $table->string('password',60);
             $table->integer('proveedor_id');
+            $table->integer('localizacion_id');
             //$table->boolean('activo')->default(false);
             $table->rememberToken();
             $table->timestamps();

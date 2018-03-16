@@ -21,11 +21,12 @@
         @guest
           <!-- no se muestra nada -->
         @else
-            @if($urlButton)
-          <a href="{{asset($moduloUrl.'/create')}}" title="Compose" class="btn btn-compose">
-              Crear Nuevo {{$modulo}}
+          <a href="{{asset('productos/create')}}" title="Compose" class="btn btn-compose">
+             crear producto
           </a>
-            @endif
+          <a href="{{asset('users/create')}}" title="Compose" class="btn btn-compose">
+             crear Usuario
+          </a>
         @endguest
           
       </div>
@@ -36,7 +37,10 @@
 
           </li>
           <li>
-              <a href="{{asset('/proveedores')}}"><i class="fas fa-warehouse"></i>Centro clap</a>
+              <a href="{{asset('/enviar')}}"><i class="fas fa-warehouse"></i>Enviar Rublos</a>
+          </li>
+          <li>
+              <a href="{{asset('/proveedores')}}"><i class="fas fa-warehouse"></i>Centros clap</a>
           </li>
           <li>
               <a href="{{asset('/productos')}}"><i class="fas fa-boxes"></i>Productos</a>
@@ -49,6 +53,12 @@
           </li>
           <li>
               <a href="#"><i class=" fa fa-trash-o"></i> Trash</a>
+          </li>
+      </ul>
+      <ul class="nav nav-pills nav-stacked labels-info inbox-divider">
+          <li> <a href="#"> <i class=" fa fa-sign-blank text-danger"></i> centro de acopio </a> </li>
+          <li> <a href="#"> <i class=" fa fa-sign-blank text-success"></i> centro de distribucion </a> </li>
+          <li> <a href="#"> <i class=" fa fa-sign-blank text-info "></i> clap </a>
           </li>
       </ul>
       <ul class="nav nav-pills nav-stacked labels-info inbox-divider">

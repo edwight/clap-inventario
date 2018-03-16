@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Proveedor;
+use App\Models\Producto;
+use App\Models\Localizacion;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -56,4 +59,20 @@ class HomeController extends Controller
         $logs = \LogActivity::logActivityLists();
         return view('User.logActivity.activity',compact('logs','modulo','moduloUrl','urlButton'));
     }
+    
+    public function getLocalizacion(Request $request)
+    {
+        $input = $request->input('option');
+        $localizacion = Localizacion::where('proveedor_id',$input)->pluck('nombre', 'id');
+        return $localizacion;
+        
+    }
+    public function getUsers(Request $request)
+    {
+        $input = $request->input('option');
+        $user = User::where('localizacion_id',$input)->pluck('name', 'id');
+        return $user;
+        
+    }
+
 }

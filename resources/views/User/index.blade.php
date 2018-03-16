@@ -1,7 +1,7 @@
 @extends('template.layout')
     @section('title', 'Proveedor Lista')
     @section('content')  
-        @include('template.listoption')
+
         <!-- componente lista-item -->
         
             <table class="table table-inbox table-hover">
